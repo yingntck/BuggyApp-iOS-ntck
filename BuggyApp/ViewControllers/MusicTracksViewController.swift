@@ -23,6 +23,9 @@ class MusicTracksViewController: UIViewController {
     // Do any additional setup after loading the view.
     tableView.estimatedRowHeight = CGFloat(140.0)
     
+    tableView.dataSource = self
+    tableView.delegate = self
+    
     APIManager.shared.getArtistInfo(artistName: "taylorswift") { [weak self] result in
       switch result {
       case .success(let tracks):
