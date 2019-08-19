@@ -27,6 +27,8 @@ class MusicTracksViewController: UIViewController {
       switch result {
       case .success(let tracks):
         self?.tracks = tracks
+        self?.tableView.reloadData()
+        
       case .failure(let error):
         let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "OK", style: .default, handler: nil)
